@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <meta charset="UTF-8" />
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" type="text/css" href="./css/format.css" />
+  </head>
+
+  <body style="margin: 0%">
+    <audio id="backgroundMusic" autoplay loop>
+      <source src="music/doodles.mp4" type="audio/mpeg" />
+      Your browser does not support the audio.
+    </audio>
+    <canvas></canvas>
+    <div id="imgTxt">
+      <span id="Txt"></span> <br />
+      <span id="tmp"></span>
+      <img id="img" src="" />
+    </div>
+    <div id="heartTxt">
+      <div id="heart">
+        <button class="wish-button" onclick="handleClick()">Get Your Special Wishes!</button>
+      </div>
+    </div>
+    <div id="content">
+      <h2 id="together" class="animate-class">Happy Birthday! 🎉🎂</h2>
+      <div id="timer"class="animate-class"><b id="m"></b>Wishing you a day filled with love, joy, and laughter!</div>
+    </div>
+
+    <div id="typeDiv">
+      <span id="txt1" class="animate-class"></span> <br />
+      <span id="txt2" class="animate-class"></span>
+    </div>
+
+    <script>
+      var ok = 0;
+      var flag = 1;
+      var myImage = document.getElementById("img");
+      var myTxt = document.getElementById("Txt");
+      var imageArray = [
+        "pic/1.png",
+        "pic/2.png",
+        "pic/3.png",
+        "pic/4.png",
+      ];
+      var imageIndex = 0;
+      var txtArray = [
+        "สุขสันต์วันเกิดค้าบบ",
+        "มีความสุขมากๆนะค้าบบ",
+        "ขอให้ทำอะไรก็สำเร็จ",
+        "แรงกายแข็งแรงอยู่กับพี่ไปนานๆนะครับ!",
+      ];
+      var len = imageArray.length;
+      var t = 0;
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+        });
+      });
+
+      const hiddenElements = document.querySelectorAll(".animate-class");
+      hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+
+    <script type="text/javascript" src="./js/stars.js"></script>
+    <script type="text/javascript" src="./js/typeWriter.js"></script>
+    <script type="text/javascript" src="./js/date.js"></script>
+    <script type="text/javascript" src="./js/playImg.js"></script>
+    <script>
+      document.getElementById("backgroundMusic").volume = 0.04;
+    </script>
+    <script>
+      // JavaScript function to navigate to the wishes page
+      function goToWishes() {
+        window.location.href = 'birthday-wishes.html';
+      }
+      function goToWishes() {
+        window.location.href = 'birthday-wishes.html';
+      }
+    </script>
+    <script>
+      function createSnowflakes() {
+        const body = document.body;
+        for (let i = 0; i < 50; i++) {  // Adjust number of snowflakes as needed
+          const snowflake = document.createElement("div");
+          snowflake.classList.add("snowflake");
+          snowflake.style.width = `${Math.random() * 5 + 5}px`;
+          snowflake.style.height = snowflake.style.width;
+          snowflake.style.left = `${Math.random() * 100}vw`;
+          snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`;
+          snowflake.style.animationDelay = `${Math.random() * 3}s`;
+          body.appendChild(snowflake);
+        }
+      }
+  
+      // Navigate to the wishes page
+      function goToWishes() {
+        window.location.href = 'birthday-wishes.html';
+      }
+  
+      // Initialize snowflakes on page load
+      window.onload = createSnowflakes;
+    </script>
+  </body>
+</html>
