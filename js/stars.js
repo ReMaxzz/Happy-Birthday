@@ -195,12 +195,14 @@ function animate() {
     if(ticker >= inf){
         ticker = 0
     }
-    if(ticker % randomSpawnRate == 0){
-        const radius = 9
-        const x = Math.max(radius, Math.random() * canvas.width - radius)
-        stars.push(new Star(x, -100, 9, '#ff6699'))
-        randomSpawnRate = Math.floor(Math.random() * (200 - 125 + 1) + 125)
-    }
+    if (ticker % randomSpawnRate == 0) {
+    const colors = ['#ff6699', '#66ff99', '#6699ff', '#ff9966', '#ffff66']; // อาร์เรย์ของสีต่าง ๆ
+    const radius = 9;
+    const x = Math.max(radius, Math.random() * canvas.width - radius);
+    const randomColor = colors[Math.floor(Math.random() * colors.length)]; // สุ่มเลือกสี
+    stars.push(new Star(x, -100, radius, randomColor));
+    randomSpawnRate = Math.floor(Math.random() * (200 - 125 + 1) + 125);
+}
 
     requestAnimationFrame(animate)
 }
